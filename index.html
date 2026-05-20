@@ -58,7 +58,9 @@
       padding-right: calc(env(safe-area-inset-right, 0) + 16px);
       border-bottom: 1px solid #000;
     }
-    .topbar-brand { display: flex; align-items: center; gap: 10px; }
+    .topbar-brand { display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; transition: opacity .15s ease; background: none; border: 0; padding: 0; color: inherit; text-align: left; font: inherit; }
+    .topbar-brand:hover { opacity: 0.7; }
+    .topbar-brand:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
     .topbar-glyph { width: 28px; height: 28px; background: var(--accent); display: grid; place-items: center; font-family: "JetBrains Mono", monospace; font-weight: 600; color: #1a1714; font-size: 13px; }
     .topbar-title { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a89e90; line-height: 1; }
     .topbar-model { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; margin-top: 2px; }
@@ -2113,7 +2115,15 @@ function App() {
   return (
     <div className="app">
       <header className="topbar">
-        <div className="topbar-brand">
+        <div
+          className="topbar-brand"
+          onClick={() => goTo("overview")}
+          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goTo("overview"); } }}
+          role="button"
+          tabIndex={0}
+          title="Back to cover"
+          aria-label="Back to cover"
+        >
           <div className="topbar-glyph">Y</div>
           <div>
             <div className="topbar-title">F175 Service</div>
