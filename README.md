@@ -8,8 +8,11 @@ parts cross-references, torque values, and troubleshooting.
 ## Files
 
 - `index.html` — single self-contained page. Open this in a browser.
+- `apple-touch-icon.png` — 180×180 icon for iOS "Add to Home Screen".
+- `og-image.png` — 1200×630 social preview (Facebook / Twitter / iMessage).
 
-That's all you need. React, Babel, and every procedure are bundled inside.
+Upload all three to the repo root. The favicon for desktop tabs is inlined
+inside `index.html` (no separate file needed).
 
 ## Deploy to GitHub Pages
 
